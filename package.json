@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "Boilerplate to create Chrome extensions using TypeScript + ReactJS",
   "scripts": {
+    "dev": "webpack --config webpack.config.js --env=development",
     "test": "npm run lint"
   },
   "repository": {
@@ -24,6 +25,18 @@
     "url": "https://github.com/danikaze/chrome-extension-boilerplate/issues"
   },
   "homepage": "https://github.com/danikaze/chrome-extension-boilerplate#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "ts-loader": "^8.0.3",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
   "dependencies": {}
 }
