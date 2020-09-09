@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Theme, Typography, Card } from '@material-ui/core';
+import { Theme, Typography, Card, Avatar } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import clsx from 'clsx';
+import icon from '../img/icon96.png';
 
 export interface HellowWorldProps {
   saluteWho?: string;
@@ -30,6 +31,7 @@ export const HelloWorld: FunctionComponent<HellowWorldProps> = ({
   return (
     <>
       <Card className={clsx(classes.card)}>
+        <Avatar alt="Example of img usage" src={icon} />
         <Typography variant="h4">Hello {saluteWho}</Typography>
       </Card>
       <Card>
