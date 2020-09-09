@@ -10,13 +10,12 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 - [React](https://reactjs.org/) support
 - [Prettier](https://prettier.io/)
 - [Linting](https://palantir.github.io/tslint/)
+- [Build time constants](build-time-constants/README.md) (including [git revisions](https://www.npmjs.com/package/git-revision-webpack-plugin) and secrets)
 
 ### Planned
 
 - [Material UI](https://material-ui.com/)
 - CRX Package building with a given .pem key
-- Build time constants (including [git revisions](https://www.npmjs.com/package/git-revision-webpack-plugin))
-- Build time secret constants
 - Auto publishing to the Chrome Web Store using the [Web Store Publish API](https://developer.chrome.com/webstore/using_webstore_api)
 - Generate all icon sizes from the manifest data and only one big icon image
 
@@ -52,3 +51,5 @@ npm install
 ## Development
 
 This application is set to render the [<App>](src/components/app.tsx) component as an entry point of your application.
+
+[Some constants](build-time-constants/build.d.ts) defined at build time are available, however others can be added as well. Check [this document](build-time-constants/README.md) for more information.

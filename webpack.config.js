@@ -4,6 +4,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const packageJson = require('./package.json');
+const { getBuildTimeConstantsPlugins } = require('./scripts/build-constants');
 
 module.exports = (env) => {
   const IS_PRODUCTION = env === 'production';
@@ -50,6 +51,7 @@ module.exports = (env) => {
     },
 
     plugins: [
+      ...getBuildTimeConstantsPlugins(IS_PRODUCTION),
       new CopyPlugin({
         patterns: [
           { from: 'icons/*', to: '' },

@@ -1,3 +1,4 @@
 node_modules
 app
-bin
+dist
+build-time-constants/*secret.js
