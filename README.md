@@ -8,12 +8,12 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 
 - [TypeScript](https://www.typescriptlang.org/) support
 - [React](https://reactjs.org/) support
+- [Prettier](https://prettier.io/)
+- [Linting](https://palantir.github.io/tslint/)
 
 ### Planned
 
 - [Material UI](https://material-ui.com/)
-- [Prettier](https://prettier.io/)
-- [Linting](https://palantir.github.io/tslint/)
 - CRX Package building with a given .pem key
 - Build time constants (including [git revisions](https://www.npmjs.com/package/git-revision-webpack-plugin))
 - Build time secret constants
