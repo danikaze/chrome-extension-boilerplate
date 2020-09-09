@@ -1,9 +1,14 @@
 import React, { FunctionComponent } from 'react';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import { theme } from '../themes/theme';
+import { HelloWorld, HellowWorldProps } from './hello-world';
 
-export interface AppProps {
-  saluteWho?: string;
-}
+export type AppProps = HellowWorldProps;
 
 export const App: FunctionComponent<AppProps> = ({ saluteWho }) => {
-  return <div>Hello {saluteWho || 'World'}</div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <HelloWorld saluteWho={saluteWho} />
+    </ThemeProvider>
+  );
 };
