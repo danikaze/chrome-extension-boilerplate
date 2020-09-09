@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "chrome-extension-boilerplate",
+  "version": "0.1.0",
+  "description": "Boilerplate to create Chrome extensions using TypeScript + ReactJS",
+  "scripts": {
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danikaze/chrome-extension-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "chrome",
+    "extension",
+    "plugin",
+    "react",
+    "typescript"
+  ],
+  "author": "danikaze <danikaze@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danikaze/chrome-extension-boilerplate/issues"
+  },
+  "homepage": "https://github.com/danikaze/chrome-extension-boilerplate#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
