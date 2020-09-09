@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Theme, Typography, Card, Avatar } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import icon from '../img/icon96.png';
+import icon from '@img/icon96.png';
 
 export interface HellowWorldProps {
   saluteWho?: string;

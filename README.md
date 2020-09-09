@@ -7,6 +7,7 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 ### Ready
 
 - [TypeScript](https://www.typescriptlang.org/) support
+- Source path aliases support
 - [React](https://reactjs.org/) support
 - [Material UI](https://material-ui.com/)
 - [Prettier](https://prettier.io/)
@@ -48,6 +49,14 @@ git push -u origin master
 ```
 npm install
 ```
+
+6. TypeScript path aliases
+
+In case that custom path aliases are required:
+
+- For path aliases to be available in the main process, edit the [main/tsconfig.json](./main/tsconfig.json) file.
+- For path aliases to be available in the renderer process, edit the [renderer/tsconfig.json](./renderer/tsconfig.json) file.
+- Add the union of all the added aliases to the `no-implicit-dependencies` rule in the [tslint.yaml](./tslint.yaml) file.
 
 ## Development
 

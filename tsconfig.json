@@ -12,7 +12,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@img": ["src/img"],
+      "@img/*": ["src/img/*"],
+      "@src": ["src"],
+      "@src/*": ["src/*"],
+      "@themes": ["src/themes"],
+      "@themes/*": ["src/themes/*"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": ["build-time-constants/*.d.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

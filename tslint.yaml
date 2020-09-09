@@ -421,7 +421,7 @@ rules:
     - dev
     # Our custom aliases/absolute-pathes
     - - '@components'
-      - '@common-utils'
-      - '@main'
-      - '@renderer'
+      - '@img'
+      - '@src'
+      - '@themes'
       - '@utils'
