@@ -1,7 +1,7 @@
 const { existsSync, readdirSync } = require('fs');
 const { join } = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const packageJson = require('./package.json');
 const { getBuildTimeConstantsPlugins } = require('./scripts/build-constants');
@@ -93,6 +93,7 @@ module.exports = (env) => {
 
     stats: {
       children: false,
+      excludeAssets: [/COMMITHASH/, /VERSION/],
     },
   };
 };

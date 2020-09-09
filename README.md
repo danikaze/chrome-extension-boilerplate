@@ -11,6 +11,7 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 - [Prettier](https://prettier.io/)
 - [Linting](https://palantir.github.io/tslint/)
 - [Build time constants](build-time-constants/README.md) (including [git revisions](https://www.npmjs.com/package/git-revision-webpack-plugin) and secrets)
+- Build command creates a Web Store-ready zip
 
 ### Planned
 
