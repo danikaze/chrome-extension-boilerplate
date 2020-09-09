@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Card, Typography, Theme } from '@material-ui/core';
+import { Theme, Typography, Card } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 

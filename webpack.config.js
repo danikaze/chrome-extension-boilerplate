@@ -38,12 +38,12 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.tsx?$/,
+          test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
           use: {
-            loader: 'ts-loader',
+            loader: 'babel-loader',
             options: {
-              configFile: 'tsconfig.json',
+              cacheDirectory: true,
             },
           },
         },

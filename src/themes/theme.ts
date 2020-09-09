@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
+import { purple } from '@material-ui/core/colors';
 
 // tslint:disable:no-magic-numbers
 export const theme = createMuiTheme({

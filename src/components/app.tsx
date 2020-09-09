@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import { ThemeProvider } from '@material-ui/styles';
 import { theme } from '../themes/theme';
 import { HelloWorld, HellowWorldProps } from './hello-world';
 
