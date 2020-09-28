@@ -65,7 +65,8 @@
     "tslint-react": "^5.0.0",
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "zip-a-folder": "0.0.12"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

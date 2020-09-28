@@ -5,8 +5,9 @@ set -e
 COLOR_HIGHLIGHT='\033[1;33m'
 COLOR_RESET='\033[0m'
 
+SCRIPTS_DIR=`dirname "${BASH_SOURCE[0]}"`
 PWD=`pwd`
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/..
+DIR="$( cd "${SCRIPTS_DIR}" >/dev/null 2>&1 && pwd )"/..
 APP="${DIR}/app"
 TARGET_DIR="${DIR}/dist"
 WEBPACK="${DIR}/node_modules/.bin/webpack"
@@ -34,21 +35,10 @@ echo -e "Building ${COLOR_HIGHLIGHT}${PACKAGE_NAME}-${PACKAGE_VERSION}${COLOR_RE
 cd "${DIR}"
 $WEBPACK --config webpack.config.js --env=production
 
-# Check for the existance of `zip` command (in Mac is ok, in Windows doesn't exists by default)
-if ! command -v zip &> /dev/null
-then
-    echo
-    echo -e "${COLOR_HIGHLIGHT}zip${COLOR_RESET} command could not be found"
-    echo -e "Just create a zip with the contents of the ${COLOR_HIGHLIGHT}app${COLOR_RESET} folder"
-    # Restore the working directory
-    cd "$PWD"
-    exit
-fi
-
 # Generate the zip file (for the Chrome store)
 echo -e "* Creating ${COLOR_HIGHLIGHT}$(basename "${TARGET_DIR}")/$(basename "${TARGET_ZIP}")${COLOR_RESET}"
-cd "${APP}"
-zip -r -9 -q "${TARGET_ZIP}" *
+cd "${SCRIPTS_DIR}"
+node ./zip.js "${TARGET_ZIP}" "${APP}"
 
 # Restore the working directory
 cd "$PWD"
