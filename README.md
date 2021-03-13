@@ -42,7 +42,7 @@ git push -u origin master
 
 3. Edit the `name`, `description` and `version` if needed in [package.json].
 
-4. Edit the `name`, `short_name`, `description` and `browser_action.default_title` fields in [manifest.json]. It's also recommended to [reduce the needed permissions](https://developer.chrome.com/extensions/declare_permissions) as much as possible. The `version` field will be automatically sync'ed with the one in `package.json` in each build.
+4. Edit the `name`, `short_name`, `description` and `browser_action.default_title` fields in [manifest.json](./manifest.json). It's also recommended to [reduce the needed permissions](https://developer.chrome.com/extensions/declare_permissions) as much as possible. The `version` field will be automatically sync'ed with the one in `package.json` in each build.
 
 5. Install the needed packages
 

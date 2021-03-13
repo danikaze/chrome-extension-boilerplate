@@ -19,5 +19,6 @@
     "default_icon": "icons/icon128.png",
     "default_popup": "static/index.html"
   },
-  "permissions": ["http://*/*", "https://*/*"]
+  "permissions": ["http://*/*", "https://*/*"],
+  "web_accessible_resources": ["img/*"]
 }
