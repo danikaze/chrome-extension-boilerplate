@@ -7,7 +7,7 @@ const packageJson = require('./package.json');
 const { getBuildTimeConstantsPlugins } = require('./scripts/build-constants');
 
 module.exports = (env) => {
-  const IS_PRODUCTION = env === 'production';
+  const IS_PRODUCTION = env.production === true;
 
   return {
     mode: IS_PRODUCTION ? 'production' : 'development',
@@ -31,7 +31,7 @@ module.exports = (env) => {
           use: {
             loader: 'file-loader',
             options: {
-              name: '[name]-[hash:8].[ext]',
+              name: '[name]-[contenthash:8].[ext]',
               outputPath: 'img',
               publicPath: './img',
             },
@@ -45,6 +45,13 @@ module.exports = (env) => {
             options: {
               cacheDirectory: true,
             },
+          },
+        },
+        // https://webpack.js.org/configuration/module/#resolvefullyspecified
+        {
+          test: /\.m?js$/,
+          resolve: {
+            fullySpecified: false,
           },
         },
       ],
@@ -69,7 +76,7 @@ module.exports = (env) => {
             if (!existsSync('src/static')) return [];
             if (readdirSync('src/static').length === 0) return [];
 
-            return [{ from: 'src/static/*', to: 'static', flatten: true }];
+            return [{ from: 'src/static/*', to: 'static' }];
           })()
         ),
       }),
@@ -88,7 +95,7 @@ module.exports = (env) => {
 
     optimization: {
       minimize: IS_PRODUCTION,
-      namedModules: !IS_PRODUCTION,
+      moduleIds: IS_PRODUCTION ? undefined : 'named',
     },
 
     stats: {

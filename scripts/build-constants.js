@@ -6,17 +6,15 @@ const { join } = require('path');
 const { readdirSync } = require('fs');
 const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const GitRevisionPlugin = require('git-revision-webpack-plugin');
+const getGitData = require('./git');
 const packageJson = require('../package.json');
-
-const gitRevisionPlugin = new GitRevisionPlugin();
 
 module.exports = { getBuildTimeConstantsPlugins };
 
 function getBuildTimeConstantsPlugins(IS_PRODUCTION) {
   const constants = getConstants(IS_PRODUCTION);
 
-  const plugins = [gitRevisionPlugin, new DefinePlugin(constants)];
+  const plugins = [new DefinePlugin(constants)];
 
   plugins.push(
     new CleanWebpackPlugin({
@@ -41,13 +39,15 @@ function getConstants(IS_PRODUCTION) {
       return { ...res, ...fileData };
     }, {});
 
+  const gitData = getGitData();
+
   return stringify({
     ...constants,
     IS_PRODUCTION,
     PACKAGE_NAME: packageJson.name,
     PACKAGE_VERSION: packageJson.version,
-    COMMIT_HASH: gitRevisionPlugin.commithash(),
-    COMMIT_HASH_SHORT: gitRevisionPlugin.commithash().substr(0, 7),
+    COMMIT_HASH: gitData.rev,
+    COMMIT_HASH_SHORT: gitData.shortRev,
   });
 }
 
