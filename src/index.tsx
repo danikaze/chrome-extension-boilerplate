@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import { App } from '@components/app';
 import { msgLog } from '@utils/logging';
 
@@ -7,7 +7,8 @@ const container = document.createElement('div');
 document.body.appendChild(container);
 
 const app = <App />;
-render(app, container);
+const root = createRoot(container);
+root.render(app);
 
 // just show available constants working
 // can be removed safely

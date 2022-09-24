@@ -1,6 +1,6 @@
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
-module.exports = (onError = '') => {
+export default (onError = '') => {
   try {
     const rev = execSync('git rev-parse HEAD').toString().trim();
     const shortRev = execSync('git rev-parse --short HEAD').toString().trim();

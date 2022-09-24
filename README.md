@@ -9,9 +9,9 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 - [TypeScript](https://www.typescriptlang.org/) support
 - Source path aliases support
 - [React](https://reactjs.org/) support
-- [Material UI](https://material-ui.com/)
+- CSS modules with scss/sass support
 - [Prettier](https://prettier.io/)
-- [Linting](https://palantir.github.io/tslint/)
+- [Linting](https://eslint.org/)
 - [Build time constants](build-time-constants/README.md) (including [git revisions](https://www.npmjs.com/package/git-revision-webpack-plugin) and secrets)
 - Build command creates a Web Store-ready zip
 
@@ -60,6 +60,24 @@ In case that custom path aliases are required:
 
 ## Development
 
-This application is set to render the [<App>](src/components/app.tsx) component as an entry point of your application.
+This application is set to render the [<App>](src/components/app/index.tsx) component as an entry point of your application.
 
 [Some constants](build-time-constants/build.d.ts) defined at build time are available, however others can be added as well. Check [this document](build-time-constants/README.md) for more information.
+
+To develop, just execute
+
+```
+npm run dev
+```
+
+Source code will be generated in the [release/app](./release/app) folder and it can be imported as an unpacked extension in chrome.
+
+## Build to release
+
+Execute
+
+```
+npm run build
+```
+
+The resulting zip file will be placed in the [release/dist] folder and it can be uploaded to the [Chrome Store dashboard](https://chrome.google.com/webstore/devconsole/).
