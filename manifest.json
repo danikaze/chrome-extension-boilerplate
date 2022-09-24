@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Chrome Extension Boilerplate",
   "short_name": "Boilerplate",
@@ -14,11 +14,18 @@
     "256": "icons/icon256.png"
   },
 
-  "browser_action": {
+  "action": {
     "default_title": "",
     "default_icon": "icons/icon128.png",
     "default_popup": "static/index.html"
   },
-  "permissions": ["http://*/*", "https://*/*"],
-  "web_accessible_resources": ["img/*"]
+
+  "host_permissions": ["http://*/*", "https://*/*"],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["img/*"],
+      "matches": ["https://*/*", "http://*/*"]
+    }
+  ]
 }
