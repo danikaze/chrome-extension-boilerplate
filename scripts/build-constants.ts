@@ -2,19 +2,17 @@
  * Don't touch this file.
  * This is used internally by the webpack configurations
  */
-const { join } = require('path');
-const { readdirSync } = require('fs');
-const { DefinePlugin } = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const getGitData = require('./git');
-const packageJson = require('../package.json');
+import { join } from 'path';
+import { readdirSync } from 'fs';
+import { DefinePlugin, WebpackPluginInstance } from 'webpack';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import getGitData from './git';
+import packageJson from '../package.json';
 
-module.exports = { getBuildTimeConstantsPlugins };
-
-function getBuildTimeConstantsPlugins(IS_PRODUCTION) {
+export function getBuildTimeConstantsPlugins(IS_PRODUCTION: boolean) {
   const constants = getConstants(IS_PRODUCTION);
 
-  const plugins = [new DefinePlugin(constants)];
+  const plugins = [new DefinePlugin(constants)] as WebpackPluginInstance[];
 
   plugins.push(
     new CleanWebpackPlugin({
@@ -26,7 +24,7 @@ function getBuildTimeConstantsPlugins(IS_PRODUCTION) {
   return plugins;
 }
 
-function getConstants(IS_PRODUCTION) {
+function getConstants(IS_PRODUCTION: boolean) {
   const constants = readdirSync(join(__dirname, '..', 'build-time-constants'))
     .filter((file) => /\.js$/.test(file))
     .reduce((res, filePath) => {
@@ -51,9 +49,9 @@ function getConstants(IS_PRODUCTION) {
   });
 }
 
-function stringify(data) {
+function stringify<T extends {}>(data: T): Record<keyof T, string | number> {
   return Object.entries(data).reduce((res, [key, value]) => {
-    res[key] = JSON.stringify(value);
+    res[key as keyof T] = JSON.stringify(value);
     return res;
-  }, {});
+  }, {} as Record<keyof T, string | number>);
 }

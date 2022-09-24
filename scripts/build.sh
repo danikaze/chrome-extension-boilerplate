@@ -8,8 +8,8 @@ COLOR_RESET='\033[0m'
 SCRIPTS_DIR=`dirname "${BASH_SOURCE[0]}"`
 PWD=`pwd`
 DIR="$( cd "${SCRIPTS_DIR}" >/dev/null 2>&1 && pwd )"/..
-APP="${DIR}/app"
-TARGET_DIR="${DIR}/dist"
+APP="${DIR}/release/app"
+TARGET_DIR="${DIR}/release/dist"
 WEBPACK="${DIR}/node_modules/.bin/webpack"
 PACKAGE_JSON="${DIR}/package.json"
 MANIFEST_JSON="${DIR}/manifest.json"
@@ -33,12 +33,12 @@ mkdir -p "${TARGET_DIR}"
 # Generate built files in the `app` folder
 echo -e "Building ${COLOR_HIGHLIGHT}${PACKAGE_NAME}-${PACKAGE_VERSION}${COLOR_RESET}"
 cd "${DIR}"
-$WEBPACK --config webpack.config.js --env=production
+$WEBPACK --config webpack.config.ts --env=production
 
 # Generate the zip file (for the Chrome store)
 echo -e "* Creating ${COLOR_HIGHLIGHT}$(basename "${TARGET_DIR}")/$(basename "${TARGET_ZIP}")${COLOR_RESET}"
 cd "${SCRIPTS_DIR}"
-node ./zip.js "${TARGET_ZIP}" "${APP}"
+ts-node ./zip.ts "${TARGET_ZIP}" "${APP}"
 
 # Restore the working directory
 cd "$PWD"

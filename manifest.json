@@ -4,7 +4,7 @@
   "name": "Chrome Extension Boilerplate",
   "short_name": "Boilerplate",
   "description": "Boilerplate to create Chrome extensions using TypeScript + ReactJS",
-  "version": "AUTO_FILLED",
+  "version": "AUTO_FILLED_FROM_package.json",
 
   "icons": {
     "16": "icons/icon16.png",

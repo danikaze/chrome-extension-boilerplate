@@ -1,5 +1,5 @@
-const { normalize } = require('path');
-const { zip } = require('zip-a-folder');
+import { normalize } from 'path';
+import { zip } from 'zip-a-folder';
 
 /*
  * Zips into a file with a name given by the first agument
