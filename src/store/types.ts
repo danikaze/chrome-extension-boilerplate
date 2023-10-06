@@ -1,0 +1,1 @@
+/* Set here types related to the host web */

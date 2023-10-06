@@ -25,13 +25,13 @@ Boilerplate to create Chrome extensions using TypeScript + ReactJS
 
 Supposing we want to create a new project based on this boilerplate, into `PROJECT_FOLDER`:
 
-1. Clone this repository
+### 1. Clone this repository
 
 ```
 git clone https://github.com/danikaze/chrome-extension-boilerplate.git PROJECT_FOLDER
 ```
 
-2. Change the origin to the new repository
+### 2. Change the origin to the new repository
 
 ```
 cd PROJECT_FOLDER
@@ -40,17 +40,33 @@ git remote add origin YOUR_REMOTE_REPOSITORY.git
 git push -u origin master
 ```
 
-3. Edit the `name`, `description` and `version` if needed in [package.json].
+### 3. Edit the following fields in [package.json](./package.json) when needed:
 
-4. Edit the `name`, `short_name`, `description` and `browser_action.default_title` fields in [manifest.json](./manifest.json). It's also recommended to [reduce the needed permissions](https://developer.chrome.com/extensions/declare_permissions) as much as possible. The `version` field will be automatically sync'ed with the one in `package.json` in each build.
+- `name`
+- `description`
+- `version`
 
-5. Install the needed packages
+### 4. Edit the following fields in [manifest.json](./manifest.json):
+
+- `name`
+- `short_name`
+- `description`
+- `permissions`: recommended to [reduce the needed permissions](https://developer.chrome.com/extensions/declare_permissions) as much as possible.
+- `host_permissions`: With your host web app(s)
+- `web_accessible_resources.matches`: To allow the host web app(s) to access the resources (to render, etc.)
+- `options_page`: remove if not used
+
+The `version` field will be automatically sync'ed with the one in `package.json` in each build.
+
+### 5. Replace `your-host` with the proper value across the files of the repository
+
+### 6. Install the needed packages
 
 ```
 npm install
 ```
 
-6. TypeScript path aliases
+### 7. TypeScript path aliases
 
 In case that custom path aliases are required:
 
@@ -60,7 +76,12 @@ In case that custom path aliases are required:
 
 ## Development
 
-This application is set to render the [<App>](src/components/app/index.tsx) component as an entry point of your application.
+This boilerplate provides different entry points:
+
+- [options](./src/entries/options): provides the option page accessible by the icon/settings of the extension
+- [popup]('./src/entries/popup): provides the popup when the icon is clicked
+- [ui]('./src/entries/ui): provides the entry point to run code inside the host page. Injected by the worker.
+- [worker]('./src/entries/worker): injects the ui script and provides some message communication between tabs, etc.
 
 [Some constants](build-time-constants/build.d.ts) defined at build time are available, however others can be added as well. Check [this document](build-time-constants/README.md) for more information.
 

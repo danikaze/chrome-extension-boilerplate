@@ -4,6 +4,14 @@ export const msgError = msg.bind(undefined, 'error');
 export const msgWarn = msg.bind(undefined, 'warn');
 export const msgTable = table.bind(undefined);
 
+// console methods binded as a local in case they are redefined somewhere
+const console = {
+  log: globalThis.console.log,
+  error: globalThis.console.error,
+  warn: globalThis.console.warn,
+  table: globalThis.console.table,
+};
+
 type MsgType = 'log' | 'error' | 'warn';
 const COLOR_MAP: { [type: string]: string } = {
   log: '#000ca2',

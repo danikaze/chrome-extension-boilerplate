@@ -16,16 +16,17 @@
 
   "action": {
     "default_title": "",
-    "default_icon": "icons/icon128.png",
-    "default_popup": "static/index.html"
+    "default_icon": "icons/icon128.png"
   },
-
-  "host_permissions": ["http://*/*", "https://*/*"],
-
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "permissions": ["webNavigation", "scripting", "storage"],
+  "host_permissions": ["https://your-host.com/*"],
   "web_accessible_resources": [
     {
-      "resources": ["img/*"],
-      "matches": ["https://*/*", "http://*/*"]
+      "resources": ["assets/*"],
+      "matches": ["https://your-host.com/*"]
     }
   ]
 }

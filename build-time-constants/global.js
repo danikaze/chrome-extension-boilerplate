@@ -1,4 +1,4 @@
 module.exports = {
   LOG_PREFIX: 'EXT',
-  GLOBAL_EXAMPLE: 'GLOBAL_EXAMPLE',
+  WINDOW_GLOBAL_API_VARNAME: 'extApi',
 };

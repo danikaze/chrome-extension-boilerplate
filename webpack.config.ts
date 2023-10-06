@@ -20,7 +20,10 @@ const config: (env: any) => Configuration = (env) => {
     devtool: IS_PRODUCTION ? undefined : 'inline-source-map',
 
     entry: {
-      app: ['src/index.tsx'],
+      worker: ['src/entries/worker/index.ts'],
+      ui: ['src/entries/ui/index.tsx'],
+      popup: ['src/entries/popup/index.tsx'],
+      options: ['src/entries/options/index.tsx'],
     },
 
     output: {

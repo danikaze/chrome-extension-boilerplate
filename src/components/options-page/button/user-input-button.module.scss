@@ -1,0 +1,22 @@
+.root {
+  display: inline-block;
+  margin: 10;
+  padding: 7px 15px;
+  font-weight: bold;
+  border-radius: 5;
+}
+
+.enabled {
+  cursor: pointer;
+  color: #3d3d6d;
+  background: #eaf5ff;
+  &:hover {
+    color: #31344a;
+    background: #d7ebfd;
+  }
+}
+
+.disabled {
+  color: #a7a79b;
+  background: #e3eaf1;
+}

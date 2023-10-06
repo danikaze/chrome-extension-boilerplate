@@ -8,8 +8,8 @@ declare module '*.png';
  */
 /** Profix to be used by the logger in the console */
 declare const LOG_PREFIX: string;
-/** Example of a value available in the whole application */
-declare const GLOBAL_EXAMPLE: string;
+/** Name for the global variable (in window) where the global api will be assigned */
+declare const WINDOW_GLOBAL_API_VARNAME: string;
 
 /*
  * Data from global-secret.js
