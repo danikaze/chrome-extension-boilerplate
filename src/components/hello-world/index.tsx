@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import clsx from 'clsx';
+import { FunctionComponent } from 'react';
+import { clsx } from 'clsx';
 import icon from '@img/icon96.png';
 
 import styles from './hello-world.module.scss';
